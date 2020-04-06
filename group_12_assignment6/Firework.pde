@@ -1,12 +1,16 @@
 class Firework {
-  Particle firework = new Particle(random(width), height, true);
+  float c = random(255);
+
+  Particle firework = new Particle(random(width), height, c, true);
   Particle explosureP; 
-  
+
   //disappear when reach the new location
   boolean exploded = false;
 
   ArrayList<Particle> explosureParticle;
   //Particle explosureParticle[];
+
+
 
   Firework() {
     exploded = false;
@@ -44,10 +48,10 @@ class Firework {
   }
 
   void explode() {
-    
+
     //when particle reaches the top point, a series new particle displays
     for (int i = 0; i < 100; i++) {
-      explosureP = new Particle(firework.location.x, firework.location.y, false);//explosure starting point
+      explosureP = new Particle(firework.location.x, firework.location.y, c, false);//explosure starting point
       explosureParticle.add(explosureP);
     }
   }
