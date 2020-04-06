@@ -1,4 +1,4 @@
-class Yoyo {
+class PaddleBall {
   PImage ball;
   float xpos, ypos;
   float gravity = 0.5;
@@ -10,8 +10,9 @@ class Yoyo {
   float w = 20;
   float h = 80;
   float angle = 0;
+  PaddleParticle part1;
 
-  Yoyo (float x, float y) {
+  PaddleBall (float x, float y) {
     ball = loadImage("pokeball.png");
     ball.resize(80, 80);
     this.xpos = x;
@@ -35,10 +36,19 @@ class Yoyo {
   }
 
   void display() {
-    strokeWeight(5);
-    stroke(175, 175, 0);
-    line(xpos, ypos, mouseX, mouseY);
+    noStroke();
     fill(255, 0, 0);
+    ellipse(mouseX, mouseY, 60, 80);
+    rectMode(CENTER);
+    rect(mouseX, mouseY + 35, 16, 30);
+    ellipse(mouseX, mouseY + 55, 25, 45);
+    
+    strokeWeight(5);
+    stroke(255);
+    line(xpos, ypos, mouseX, mouseY);
+    line(xpos + 20, ypos, mouseX, mouseY);
+    line(xpos - 20, ypos, mouseX, mouseY);
+
     pushMatrix();
     translate(xpos, ypos);
     rotate(angle);
@@ -46,5 +56,9 @@ class Yoyo {
     popMatrix();
     float angleChange = yVel * 0.05;
     angle += angleChange;
+    float dist = dist(mouseX, mouseY, xpos, ypos);
+    if (dist >= 50) {
+      println("peak", dist);
+    }
   }
 }
