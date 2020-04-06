@@ -4,12 +4,13 @@ class Particle {
   PVector acceleration;
   boolean firework;
   float lifespan = 255; //alpha value
+  float c;//color
 
-
-  Particle(float x, float y, boolean firework) {
+  Particle(float x, float y, float c, boolean firework) {
     location =  new PVector(x, y);
+    this.c = c;
     this.firework = firework;
-    
+
     if (firework) {
       velocity = new PVector(0, random(-12, -8));
     } else {
@@ -40,10 +41,10 @@ class Particle {
   void display() {
     if (!firework) {
       strokeWeight(2);
-      stroke(255, lifespan);
+      stroke(c, 255, 255, lifespan);
     } else {
       strokeWeight(4);
-      stroke(255);
+      stroke(c, 255, 255);
     }
 
     point(location.x, location.y);
