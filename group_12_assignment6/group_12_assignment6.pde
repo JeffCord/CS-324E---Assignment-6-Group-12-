@@ -27,7 +27,7 @@ void draw() {
     bird_1.slowDown();
   }  
   
-  if (random(1) < 0.1) {
+  if (random(1) < 0.04) {
     firework.add(new Firework());
   }
   for (int i = firework.size()-1; i >= 0; i--) {
