@@ -28,7 +28,7 @@ class Firework {
     for (int i = 0; i < explosureParticle.size(); i++) {
       Particle p = explosureParticle.get(i);
       p.applyForce(gravity);
-      p.display();
+      p.update();
     }
   }
 
