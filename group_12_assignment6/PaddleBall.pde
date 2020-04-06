@@ -3,8 +3,8 @@ class PaddleBall {
   float xpos, ypos;
   float gravity = 0.5;
   float mass = 5;
-  float xVel = mass;
-  float yVel = gravity;
+  float xVel = 0;
+  float yVel = 0;
   float friction = 0.95;
   float rigidity = 0.15;
   float w = 20;
@@ -57,8 +57,8 @@ class PaddleBall {
     float angleChange = yVel * 0.05;
     angle += angleChange;
     float dist = dist(mouseX, mouseY, xpos, ypos);
-    if (dist >= 50) {
-      println("peak", dist);
+    if (dist >= 200) {
+      
     }
   }
 }
