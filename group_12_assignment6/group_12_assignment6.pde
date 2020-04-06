@@ -11,6 +11,10 @@ int num_of_lizards = 5;
 void setup() {
   size(800,800);
   background(250);
+  colorMode(HSB); // this might affect something, be aware
+  saveFrame();
+  
+  
   bird = loadImage("bird.png");
   gravity = new PVector(0, 0.1);
   firework = new ArrayList<Firework>(); //empty
