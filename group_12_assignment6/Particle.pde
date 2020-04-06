@@ -40,10 +40,10 @@ class Particle {
 
   void display() {
     if (!firework) {
-      strokeWeight(2);
+      strokeWeight(4);
       stroke(c, 255, 255, lifespan);
     } else {
-      strokeWeight(4);
+      strokeWeight(2);
       stroke(c, 255, 255);
     }
 
