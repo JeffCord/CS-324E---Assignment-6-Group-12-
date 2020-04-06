@@ -2,7 +2,7 @@ Bird bird_1 = new Bird(250,250,100);
 PImage bird;
 ArrayList<Firework> firework;
 PVector gravity;
-
+Yoyo yoyo1;
 
 void setup() {
   size(800,800);
@@ -10,11 +10,14 @@ void setup() {
   bird = loadImage("bird.png");
   gravity = new PVector(0, 0.1);
   firework = new ArrayList<Firework>(); //empty
-
+  yoyo1 = new Yoyo(width/2, height/2);
 }
 
 void draw() {
   background(0);
+  
+  yoyo1.update();
+  
   bird_1.display();
   bird_1.isOver();
   bird_1.isClicked();
