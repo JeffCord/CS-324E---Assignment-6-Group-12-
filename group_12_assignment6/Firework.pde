@@ -44,6 +44,8 @@ class Firework {
   }
 
   void explode() {
+    
+    //when particle reaches the top point, a series new particle displays
     for (int i = 0; i < 100; i++) {
       explosureP = new Particle(firework.location.x, firework.location.y, false);//explosure starting point
       explosureParticle.add(explosureP);
