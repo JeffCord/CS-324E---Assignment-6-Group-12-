@@ -2,28 +2,35 @@ class Particle {
   PVector location;
   PVector velocity;
   PVector acceleration;
-  //float lifespan; //alpha value
+  boolean firework;
+  float lifespan = 255; //alpha value
 
 
   Particle(float x, float y, boolean firework) {
     location =  new PVector(x, y);
+    this.firework = firework;
+    
     if (firework) {
       velocity = new PVector(0, random(-12, -8));
     } else {
-      velocity = PVector.random2D();//random direction
-      velocity.mult(random(4, 8));
+      velocity = PVector.random2D(); //point to random directions
+      velocity.mult(random(1, 15)); //exposure range
     }
 
     acceleration = new PVector(0, 0);
     //lifespan = 255.0;
   }
 
-
   void applyForce(PVector force) {
     acceleration.add(force);
   }
 
   void update() {
+    if (!firework) {
+      velocity.mult(0.8);//slows down every frame (exposure particles)
+      lifespan -= 5;
+    }
+
     velocity.add(acceleration);
     location.add(velocity);
 
@@ -31,8 +38,13 @@ class Particle {
   }
 
   void display() {
-    stroke(255);
-    strokeWeight(4);
+    if (!firework) {
+      strokeWeight(2);
+      stroke(255, lifespan);
+    } else {
+      strokeWeight(4);
+      stroke(255);
+    }
 
     point(location.x, location.y);
   }
