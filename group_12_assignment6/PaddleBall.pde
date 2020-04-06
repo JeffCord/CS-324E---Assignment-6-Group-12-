@@ -10,7 +10,6 @@ class PaddleBall {
   float w = 20;
   float h = 80;
   float angle = 0;
-  PaddleParticle part1;
 
   PaddleBall (float x, float y) {
     ball = loadImage("pokeball.png");
@@ -54,11 +53,8 @@ class PaddleBall {
     rotate(angle);
     image(ball, 0, 0);
     popMatrix();
+    
     float angleChange = yVel * 0.05;
     angle += angleChange;
-    float dist = dist(mouseX, mouseY, xpos, ypos);
-    if (dist >= 200) {
-      
-    }
   }
 }

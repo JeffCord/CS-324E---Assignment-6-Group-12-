@@ -3,6 +3,10 @@ PImage bird;
 ArrayList<Firework> firework;
 PVector gravity;
 PaddleBall pb1;
+Bug [] bugs;
+int num_of_bugs = 10;
+Lizard [] lizards;
+int num_of_lizards = 5;
 
 void setup() {
   size(800,800);
@@ -11,10 +15,26 @@ void setup() {
   gravity = new PVector(0, 0.1);
   firework = new ArrayList<Firework>(); //empty
   pb1 = new PaddleBall(width/2, height/2);
+  bugs = new Bug [num_of_bugs];
+  lizards = new Lizard[num_of_lizards];
+  for (int i = 0; i < num_of_bugs; i++) {
+    bugs[i] = new Bug(random(50, width - 50), random(50, height - 50));
+    if (i < num_of_lizards) {
+      lizards[i] = new Lizard(random(61, width - 61), random(61, height - 61));
+    }
+  }
+  
+  
 }
 
 void draw() {
   background(0);
+  for (int i = 0; i < num_of_bugs; i++) {
+    bugs[i].update();
+    if (i < num_of_lizards) {
+      lizards[i].update();
+    }
+  }
   
   pb1.update();
   
