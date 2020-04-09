@@ -48,10 +48,11 @@ class Lizard {
   void update(Bug [] bugs) {
     imageMode(CENTER);
     if (survivors != 0) {
+      if (day >= lifeSpan) {
+        alive = false;
+      }
       if (alive) {
-        if (day >= lifeSpan) {
-          alive = false;
-        }
+
 
         if (survivors > 0) {
           // check for collision with bugs
