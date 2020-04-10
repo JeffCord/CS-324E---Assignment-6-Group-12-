@@ -86,12 +86,15 @@ class Lizard {
         image(livePic, x, y);
 
         // every five days, the lizard will shrink a bit
+        // or grow if it has eaten in those same five days
         if (survivors > 0) {
           day += 1;
           if (day % 5 == 0) {
             size = (10 * (lifeSpan - day) / 60) + sizeWhenDead;
           }
         }
+        
+        detectRange = (size / 2) + 180;
 
         x += xVel;
         y += yVel;
