@@ -8,6 +8,8 @@ int num_of_bugs = 10;
 Lizard [] lizards;
 int num_of_lizards = 5;
 int survivors = num_of_bugs;
+int ballX;
+int ballY;
 
 
 void setup() {
@@ -44,11 +46,17 @@ void draw() {
   }
 
   // update the paddleball
-  //pb1.update();
-
+  pb1.update();
+  
+  // bird actions
+  push();
   bird_1.display();
-  bird_1.isOver();
-  bird_1.isClicked();
+  pop();
+
+  if (dist(bird_1.location.x, bird_1.location.y, pb1.xpos, pb1.ypos) <= 90) {
+    bird_1.fall();
+    bird_1.clicked = true;
+  }
 
   if (bird_1.clicked == true && (bird_1.location.y != height - (bird_1.radius/2))) {
     bird_1.fall();
@@ -57,7 +65,8 @@ void draw() {
   if (bird_1.location.y == height - (bird_1.radius/2)) {
     bird_1.slowDown();
   }  
-
+  
+  // firework actions
   colorMode(HSB);
   if (random(1) < 0.04) {
     firework.add(new Firework());

@@ -1,6 +1,6 @@
 class Bird {
   
-  float x, y, radius, damp, friction;
+  float x, y, radius, damp, friction, angle;
   int rad;
   boolean over,clicked, fall;
   PVector location;
@@ -23,6 +23,7 @@ class Bird {
     fall = false;
     rad = 0;
     friction = .96;
+    angle = 0;
   }
   
   void display() {
@@ -31,11 +32,32 @@ class Bird {
      velocity.x = velocity.x * -1;
     }
     location.add(velocity);
-    noStroke();
-    fill(0,0,0,1);
-    circle(location.x,location.y,radius);
-    imageMode(CENTER);
-    image(bird,location.x,location.y,radius,radius);
+    if (clicked == false) {
+      noStroke();
+      fill(0,0,0,1);
+      circle(location.x,location.y,radius);
+      imageMode(CENTER);
+      image(bird,location.x,location.y,radius,radius);
+    }
+    if (clicked == true && abs(velocity.x) > 1.1) {
+     angle += .1;
+     translate(location.x,location.y);
+     noStroke();
+     fill(0,0,0,1);
+     circle(0,0,radius);
+     imageMode(CENTER);
+     rotate(angle);
+     image(bird,0,0,radius,radius); 
+    }
+    if (clicked == true && abs(velocity.x) < 1.1) {
+     translate(location.x,location.y);
+     noStroke();
+     fill(0,0,0,1);
+     circle(0,0,radius);
+     imageMode(CENTER);
+     rotate(angle);
+     image(bird,0,0,radius,radius); 
+    }
 
 
    
