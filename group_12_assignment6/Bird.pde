@@ -93,5 +93,13 @@ class Bird {
   
   void slowDown() {
    velocity.x = velocity.x * friction;   
-  }  
+  }
+  
+  void disappear() {
+   radius -= 5; 
+  }
+  
+  void appear(){
+    radius += 2;
+  }
 }

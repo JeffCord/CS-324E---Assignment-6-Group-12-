@@ -1,4 +1,4 @@
-Bird bird_1 = new Bird(250, 250, 100);
+Bird bird_1 = new Bird(random(0,width), 250, 1);
 PImage bird;
 ArrayList<Firework> firework;
 PVector gravity;
@@ -52,6 +52,10 @@ void draw() {
   push();
   bird_1.display();
   pop();
+  
+  if (bird_1.radius < 100 && bird_1.clicked == false) {
+    bird_1.appear();
+  }
 
   if (dist(bird_1.location.x, bird_1.location.y, pb1.xpos, pb1.ypos) <= 90) {
     bird_1.fall();
@@ -65,6 +69,14 @@ void draw() {
   if (bird_1.location.y == height - (bird_1.radius/2)) {
     bird_1.slowDown();
   }  
+  
+  if (abs(bird_1.velocity.x) < .05 && bird_1.clicked == true) {
+    bird_1.disappear();
+  }
+  
+  if (bird_1.radius < 1) {
+   bird_1 = new Bird(random(0,width), 250, 1);
+  }
   
   // firework actions
   colorMode(HSB);
