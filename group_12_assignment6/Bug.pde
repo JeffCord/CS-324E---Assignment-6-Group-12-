@@ -37,7 +37,7 @@ class Bug {
       if (y + (size / 2) >= height || y - (size / 2) <= 0) {
         yVel *= -1;
       }
-      circle(x, y, size);
+
       image(livePic, x, y);
       x += xVel;
       y += yVel;
