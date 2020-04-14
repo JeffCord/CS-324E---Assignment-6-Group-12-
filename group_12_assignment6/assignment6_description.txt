@@ -1,5 +1,6 @@
 Declan:
-
+There is a Bird class initialized with a random x location at a defined height. The Bird will go back and forth bouncing of the walls until the ball from the PaddleBall hits it.
+The Bird will fall and bounce until coming to a stop due to friction. It then disappears and reappears in a random location. (gravity,bouncing,friction,interaction)
 
 Jenny:
 
