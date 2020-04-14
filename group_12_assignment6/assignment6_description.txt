@@ -1,0 +1,12 @@
+Declan:
+
+
+Jenny:
+
+
+Jeff:
+There is a bug class which makes each bug initialized with a random speed. It also will bounce off the walls. If a Lizard detects a nearby bug, it will increase its speed in the direction the lizard is already going. If it does collide with bug, it will eat the bug (turning the bug white and freezing it in place), which will increase the lizard’s lifespan and go back to its original speed.  If a lizard does not eat before its lifespan is over, it will die. Each day of the lizards life passes every frame.  Every five days, the lizard will shrink a little bit in size. If the lizards eat all the bugs, they will stop needing food, will stop moving, and will turn purple. If a lizard does starve to death, it will turn white and stop moving. Also, the bugs will change  to a different, random direction every certain number of frames
+
+
+
+
