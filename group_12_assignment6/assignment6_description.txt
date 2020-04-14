@@ -3,7 +3,7 @@ There is a Bird class initialized with a random x location at a defined height. 
 The Bird will fall and bounce until coming to a stop due to friction. It then disappears and reappears in a random location. (gravity,bouncing,friction,interaction)
 
 Jenny:
-
+There is a particle class that to be used to in simulating firework, and there's a firework class use to actually simulating the firework. The height of the firework exposure was set randomly within a range and the exposure of each particle was also set randomly within a range. The firework applied gravity. The color of the firework also generated randomly. To make it more realistic, the alpha value reduces as the firework exposed.
 
 Jeff:
 There is a bug class which makes each bug initialized with a random speed. It also will bounce off the walls. If a Lizard detects a nearby bug, it will increase its speed in the direction the lizard is already going. If it does collide with bug, it will eat the bug (turning the bug white and freezing it in place), which will increase the lizard’s lifespan and go back to its original speed.  If a lizard does not eat before its lifespan is over, it will die. Each day of the lizards life passes every frame.  Every five days, the lizard will shrink a little bit in size. If the lizards eat all the bugs, they will stop needing food, will stop moving, and will turn purple. If a lizard does starve to death, it will turn white and stop moving. Also, the bugs will change  to a different, random direction every certain number of frames.
